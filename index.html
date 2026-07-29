@@ -302,7 +302,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
         <h2 class="section-title">Reading the Earth through <span class="accent">radar</span>.</h2>
         <p>I'm <strong>Simon Dagbanja</strong>, a remote sensing researcher. I build <strong>label-efficient, physics-informed</strong> methods for <strong>SAR and InSAR</strong>, aimed at environmental monitoring in data-scarce regions.</p>
         <p>My InSAR work replaces the hand-designed cost in network-flow <strong>phase unwrapping</strong> with a learned prior that preserves the solver's zero-residue guarantee, validated on coseismic interferograms against GPS. In <strong>few-shot SAR</strong>, I design frozen-backbone, physics-calibrated methods that map floods from only a handful of labelled examples.</p>
-        <p>I'm currently a graduate student at <strong>UESTC</strong> under Prof. Qian Jiang, with first-author manuscripts accepted at <strong>IEEE AP-GARSS 2026</strong> and under review at <strong>IEEE TGRS</strong>. Before radar, I trained as a geographer at the <strong>University of Ghana</strong>, with field, UAV, and GIS work across Ghana.</p>
+        <p>I'm currently a graduate student at <strong>UESTC</strong> under Prof. Qian Jiang. Before radar, I trained as a geographer at the <strong>University of Ghana</strong>, with field, UAV, and GIS work across Ghana.</p>
       </div>
     </div>
   </div>
@@ -356,8 +356,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
         <div>
           <div class="tags"><span>InSAR</span><span>Phase Unwrapping</span><span>Swin + LoRA</span></div>
           <h3>Learned Statistical Costs for Network-Flow InSAR Phase Unwrapping</h3>
-          <p>Rather than replacing the minimum-cost-flow solver, I learn its cost function: a Swin Transformer with low-rank adaptation predicts per-edge ambiguity probabilities, fused with a coherence term and made differentiable through the solver. It lowers unwrapping error by over 48% versus SNAPHU, stays residue-free on Sentinel-1 coseismic interferograms, and agrees with GPS to approximately 2 cm, with no retraining on real data. Validated on Ridgecrest, Kumamoto, Amatrice, and Gorkha events.</p>
-          <div class="links"><a href="#" target="_blank" rel="noopener">IEEE AP-GARSS 2026 →</a><a href="#" target="_blank" rel="noopener">Code →</a></div>
         </div>
       </article>
 
@@ -366,7 +364,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
         <div>
           <div class="tags"><span>InSAR</span><span>Cross-Band</span><span>L-Band</span></div>
           <h3>Cross-Band Learned Statistical Costs for Network-Flow InSAR Phase Unwrapping</h3>
-          <p>Extending the learned-cost unwrapper into a full cross-band framework: a first-principles L-band phase-noise model, LoRA-based C→L transfer with a formal forgetting bound, and a five-arc minimum-cost-flow that widens the ambiguity range for near-fault and volcanic scenes. Validated across Sentinel-1 and NISAR against independent GPS.</p>
         </div>
       </article>
 
@@ -375,7 +372,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
         <div>
           <div class="tags"><span>InSAR</span><span>L-Band</span><span>Benchmark</span></div>
           <h3>LB-DLPU: A L-Band Benchmark Dataset for Deep-Learning InSAR Phase Unwrapping</h3>
-          <p>Created LB-DLPU, a comprehensive L-band phase unwrapping benchmark for deep learning with a 13-method baseline study. Provides standardized training and evaluation protocols to advance L-band InSAR processing research.</p>   
         </div>
       </article>
 
@@ -384,7 +380,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
         <div>
           <div class="tags"><span>Few-Shot</span><span>SAR</span><span>Flood Mapping</span></div>
           <h3>TopoProto: Physics-Informed Few-Shot SAR Flood Segmentation</h3>
-          <p>Integrating HAND (Height Above Nearest Drainage) and slope priors into a prototype-based few-shot segmentation framework for SAR flood mapping. Targets Remote Sensing of Environment.</p>
         </div>
       </article>
     </div>
@@ -423,7 +418,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
         <div>
           <h3>Cross-Band Learned Statistical Costs for Network-Flow InSAR Phase Unwrapping</h3>
           <div class="authors"><u>S. Dagbanja, J. Qian and L. Haitao</u></div>
-          <div class="venue">Under review · IEEE Transactions on Geoscience and Remote Sensing · 2026</div>
+          <div class="venue">In preparation</div>
           <div class="links"><a href="#" target="_blank" rel="noopener">PDF</a><a href="#" target="_blank" rel="noopener">Code</a></div>
         </div>
       </div>
@@ -432,7 +427,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
         <div>
           <h3>A Well-Posedness-Certified, Sensor-Calibrated L-Band Benchmark Dataset for Deep-Learning InSAR Phase Unwrapping</h3>
           <div class="authors"><u>S. Dagbanja and J. Qian</u></div>
-          <div class="venue">Under review · IEEE Transactions on Geoscience and Remote Sensing · 2026</div>
+          <div class="venue">In preparation</div>
           <div class="links"><a href="#" target="_blank" rel="noopener">PDF</a><a href="#" target="_blank" rel="noopener">Code</a></div>
         </div>
       </div>
