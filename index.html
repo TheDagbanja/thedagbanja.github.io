@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Simon Dagbanja — SAR & InSAR Research</title>
+<meta name="description" content="Simon Dagbanja — graduate researcher in SAR remote sensing, InSAR phase unwrapping, and few-shot learning for Earth observation." />
+
+<meta property="og:title" content="Simon Dagbanja — SAR & InSAR Research" />
+<meta property="og:description" content="Graduate researcher in SAR remote sensing, InSAR phase unwrapping, and few-shot learning for Earth observation." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="profile.jpg" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f5673'/%3E%3Ctext x='50%25' y='55%25' font-family='Georgia,serif' font-size='32' font-weight='600' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESD%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,opsz,wght@0,8..144,400;0,8..144,500;0,8..144,600;1,8..144,400;1,8..144,500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================== TOKENS ============================== */
+:root{
+  --paper:#faf9f6;
+  --paper-2:#f3f1eb;
+  --ink:#1a1917;
+  --ink-soft:#4a4742;
+  --ink-dim:#8a847a;
+  --line:rgba(28,26,23,.10);
+  --line-soft:rgba(28,26,23,.06);
+  --accent:#1a4f6b;
+  --accent-2:#2a7a8c;
+  --accent-soft:rgba(26,79,107,.07);
+  --maxw:1280px;
+  --serif:'Crimson Pro',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.12}
+
+/* ============================== LAYOUT ============================== */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.section{padding:100px 0;position:relative}
+.section.alt{background:var(--paper-2)}
+.eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.eyebrow::before{content:'';width:22px;height:1.5px;background:var(--accent);display:inline-block}
+.section-title{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:16px}
+.lead-dim{color:var(--ink-soft);max-width:640px;font-size:1.02rem;line-height:1.6}
+.accent{color:var(--accent)}
+
+/* ============================== NAV ============================== */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,border-color .35s,box-shadow .35s;border-bottom:1px solid transparent}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
+header.nav.scrolled{background:rgba(250,249,246,.88);backdrop-filter:blur(16px) saturate(1.2);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(0,0,0,.03)}
+header.nav.scrolled .nav-inner{padding:13px 28px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.05rem;font-weight:600;letter-spacing:.01em}
+.brand .mk{width:30px;height:30px;border-radius:7px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.8rem;font-weight:600;letter-spacing:.02em}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.86rem;color:var(--ink-soft);font-weight:500;position:relative;transition:.25s;letter-spacing:.01em}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:1.5px;background:var(--accent);border-radius:1px}
+.nav-cv{padding:8px 17px;border:1px solid var(--ink);border-radius:30px;color:var(--ink);font-weight:500;font-size:.84rem;transition:.25s}
+.nav-cv:hover{background:var(--ink);color:var(--paper)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:22px;height:1.6px;background:var(--ink);transition:.3s;border-radius:1px}
+
+/* ============================== HERO ============================== */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 70px;position:relative;overflow:hidden;z-index:0}
+.hero-grid{display:grid;grid-template-columns:.95fr 1.3fr;gap:60px;align-items:center;width:100%;position:relative;z-index:1}
+.hero .kicker{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px}
+.hero h1{font-size:clamp(2.6rem,5.8vw,4.2rem);font-weight:500;margin-bottom:18px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .role{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.45rem);color:var(--ink-soft);font-style:italic;margin-bottom:22px;line-height:1.4}
+.hero p.statement{color:var(--ink-soft);font-size:1.02rem;max-width:640px;margin-bottom:18px;line-height:1.7}
+.affil{display:flex;align-items:center;gap:10px;color:var(--ink-dim);font-size:.88rem;margin-bottom:32px}
+.affil .pin{color:var(--accent);font-size:.7rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.btn{padding:12px 24px;border-radius:30px;font-weight:500;font-size:.9rem;transition:all .25s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid transparent;letter-spacing:.01em}
+.btn-solid{background:var(--accent);color:#fff}
+.btn-solid:hover{background:#143d54;transform:translateY(-2px);box-shadow:0 8px 24px -8px rgba(26,79,107,.35)}
+.btn-outline{border-color:var(--line);color:var(--ink)}
+.btn-outline:hover{border-color:var(--ink);transform:translateY(-2px)}
+.profiles{display:flex;gap:22px;flex-wrap:wrap}
+.profiles a{font-size:.85rem;color:var(--ink-soft);font-weight:500;border-bottom:1px solid var(--line);padding-bottom:2px;transition:.2s}
+.profiles a:hover{color:var(--accent);border-color:var(--accent)}
+
+.portrait{position:relative}
+.portrait .frame{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 28px 56px -24px rgba(28,26,23,.35);aspect-ratio:4/5}
+.portrait .frame img{width:100%;height:100%;object-fit:cover}
+.portrait .tag{position:absolute;right:-14px;bottom:22px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;box-shadow:0 12px 28px -12px rgba(28,26,23,.3)}
+.portrait .tag small{color:var(--ink-dim);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:2px}
+.portrait .tag b{font-family:var(--serif);font-size:.95rem;font-weight:600}
+.portrait::after{content:'';position:absolute;inset:16px 16px -16px -16px;border:1px solid var(--accent);border-radius:14px;z-index:-1;opacity:.45}
+
+/* ============================== ABOUT ============================== */
+.about-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:72px;align-items:start}
+.about-side .label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:6px;font-weight:500}
+.about-side .val{font-family:var(--serif);font-size:1.05rem;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft)}
+.about-side .val:last-child{border:0}
+.about-text p{color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem;line-height:1.7}
+.about-text strong{color:var(--ink);font-weight:600}
+
+/* ============================== RESEARCH ============================== */
+.interests{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.interest{background:var(--paper);padding:32px 30px;transition:.3s;position:relative}
+.interest:hover{background:var(--accent-soft)}
+.interest .idx{font-family:var(--serif);font-size:.9rem;color:var(--accent);margin-bottom:12px;font-weight:600}
+.interest h3{font-size:1.25rem;margin-bottom:10px}
+.interest p{color:var(--ink-soft);font-size:.94rem;line-height:1.6}
+.section.alt .interest{background:var(--paper-2)}
+.section.alt .interest:hover{background:#eae7df}
+.interest::after{content:'';position:absolute;left:0;top:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.interest:hover::after{width:100%}
+
+/* ============================== PROJECTS ============================== */
+.project{display:grid;grid-template-columns:130px 1fr;gap:30px;padding:32px 0;border-top:1px solid var(--line);transition:.25s;align-items:start}
+.project:hover{padding-left:6px}
+.project:last-child{border-bottom:1px solid var(--line)}
+.project .meta{font-size:.82rem;color:var(--ink-dim);line-height:1.5}
+.project .meta .yr{font-family:var(--serif);font-size:1rem;color:var(--ink);display:block;margin-bottom:4px;font-weight:500}
+.project h3{font-size:1.35rem;margin-bottom:10px}
+.project p{color:var(--ink-soft);margin-bottom:14px;max-width:800px;line-height:1.65;font-size:.96rem}
+.project .tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.project .tags span{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px;font-weight:600}
+.project .links{display:flex;gap:16px}
+.project .links a{font-size:.84rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:1px;transition:.2s}
+.project .links a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ============================== PUBLICATIONS ============================== */
+.pub{display:grid;grid-template-columns:32px 1fr;gap:16px;padding:24px 0;border-top:1px solid var(--line);align-items:start}
+.pub:last-child{border-bottom:1px solid var(--line)}
+.pub .n{font-family:var(--serif);font-size:1.05rem;color:var(--accent);font-weight:600;margin-top:2px}
+.pub h3{font-size:1.1rem;font-weight:600;margin-bottom:6px;line-height:1.4}
+.pub .authors{color:var(--ink-soft);font-size:.9rem;margin-bottom:4px}
+.pub .authors u{text-decoration:none;color:var(--ink);font-weight:600;border-bottom:1.5px solid var(--accent)}
+.pub .venue{font-family:var(--serif);font-style:italic;color:var(--ink-dim);font-size:.9rem;margin-bottom:10px}
+.pub .links{display:flex;gap:14px}
+.pub .links a{font-size:.78rem;font-weight:600;color:var(--accent)}
+.pub-note{margin-top:22px;color:var(--ink-dim);font-size:.9rem;font-style:italic}
+
+/* ============================== TIMELINE ============================== */
+.timeline{max-width:920px}
+.tl{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:24px 0;border-top:1px solid var(--line);align-items:start}
+.tl:last-child{border-bottom:1px solid var(--line)}
+.tl .when{font-size:.82rem;color:var(--ink-dim);font-weight:500;line-height:1.5}
+.tl h3{font-size:1.15rem;margin-bottom:4px}
+.tl .org{color:var(--accent);font-size:.88rem;margin-bottom:8px;font-weight:500}
+.tl p{color:var(--ink-soft);font-size:.92rem;line-height:1.6}
+
+/* ============================== SKILLS ============================== */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.skill-group h4{font-family:var(--serif);font-size:1.05rem;margin-bottom:12px;color:var(--ink);font-weight:600}
+.skill-group ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.skill-group li{font-size:.88rem;color:var(--ink-soft);position:relative;padding-left:14px}
+.skill-group li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5}
+
+/* ============================== HONORS ============================== */
+.honor{display:flex;justify-content:space-between;align-items:flex-start;padding:18px 0;border-top:1px solid var(--line);gap:20px}
+.honor:last-child{border-bottom:1px solid var(--line)}
+.honor h4{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:3px}
+.honor p{font-size:.88rem;color:var(--ink-soft)}
+.honor .when{font-size:.82rem;color:var(--ink-dim);white-space:nowrap;font-weight:500}
+
+/* ============================== CONTACT ============================== */
+.contact{text-align:center;max-width:680px;margin:0 auto}
+.contact h2{font-size:clamp(1.9rem,4.2vw,2.8rem);margin-bottom:16px}
+.contact h2 em{font-style:italic;color:var(--accent)}
+.contact p{color:var(--ink-soft);font-size:1.02rem;margin-bottom:30px;line-height:1.65}
+.contact .email{font-family:var(--serif);font-size:clamp(1.15rem,2.8vw,1.6rem);color:var(--accent);border-bottom:1.5px solid var(--accent);padding-bottom:3px;display:inline-block;margin-bottom:32px;transition:.2s}
+.contact .email:hover{color:var(--ink);border-color:var(--ink)}
+.cprofiles{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cprofiles a{padding:10px 20px;border:1px solid var(--line);border-radius:30px;font-size:.85rem;font-weight:500;transition:.25s}
+.cprofiles a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* ============================== FOOTER ============================== */
+footer{padding:32px 0;border-top:1px solid var(--line);text-align:center;color:var(--ink-dim);font-size:.82rem}
+
+/* ============================== REVEAL ============================== */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================== POLISH ============================== */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:200;transition:width .08s linear}
+body::before{content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
+  background:radial-gradient(1000px 500px at 80% -5%,rgba(26,79,107,.06),transparent 60%),
+             radial-gradient(750px 420px at -4% 102%,rgba(42,122,140,.05),transparent 55%)}
+.hero-motif{position:absolute;top:50%;left:5%;transform:translateY(-50%);width:520px;max-width:55vw;opacity:.5;z-index:-1;pointer-events:none;color:var(--accent)}
+.hero-motif svg{width:100%;height:auto;display:block;animation:drift 18s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(max-width:900px){.hero-motif{opacity:.25;left:2%;top:50%;width:420px}}
+.ar{display:inline-block;transition:transform .25s}
+.btn-solid:hover .ar{transform:translateX(4px)}
+.portrait .frame img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.portrait:hover .frame img{transform:scale(1.04)}
+.portrait .frame{transition:box-shadow .4s}
+.portrait:hover .frame{box-shadow:0 32px 64px -22px rgba(26,79,107,.4)}
+
+/* ============================== MOBILE ============================== */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .portrait{max-width:300px;margin:0 auto}
+  .about-grid{grid-template-columns:1fr;gap:34px}
+  .interests{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:680px){
+  .nav-links{position:fixed;inset:0 0 0 auto;width:min(74vw,280px);flex-direction:column;justify-content:center;gap:24px;background:var(--paper);border-left:1px solid var(--line);transform:translateX(100%);transition:.35s;padding:36px}
+  .nav-links.open{transform:none}
+  .nav-cv{display:none}
+  .burger{display:flex;z-index:101}
+  .burger.open span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+  .section{padding:70px 0}
+  .project,.tl,.pub{grid-template-columns:1fr;gap:10px}
+  .pub{grid-template-columns:1fr}
+  .honor{flex-direction:column;gap:4px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand"><span class="mk">SD</span> Simon Dagbanja</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#journey">Background</a>
+      <a href="#contact">Contact</a>
+      <a href="cv.pdf" class="nav-cv" target="_blank" rel="noopener">CV</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero wrap" id="home">
+  <div class="hero-motif" aria-hidden="true">
+    <svg viewBox="0 0 400 400" fill="none" stroke="currentColor">
+      <g stroke-width="1.1">
+        <ellipse cx="200" cy="200" rx="20"  ry="14"  opacity=".9"/>
+        <ellipse cx="200" cy="200" rx="42"  ry="32"  opacity=".8"/>
+        <ellipse cx="201" cy="201" rx="66"  ry="52"  opacity=".72"/>
+        <ellipse cx="202" cy="202" rx="92"  ry="74"  opacity=".62"/>
+        <ellipse cx="203" cy="203" rx="120" ry="98"  opacity=".52"/>
+        <ellipse cx="204" cy="204" rx="150" ry="124" opacity=".42"/>
+        <ellipse cx="205" cy="205" rx="182" ry="152" opacity=".32"/>
+        <ellipse cx="206" cy="206" rx="216" ry="182" opacity=".22"/>
+        <ellipse cx="207" cy="207" rx="252" ry="214" opacity=".14"/>
+        <ellipse cx="208" cy="208" rx="290" ry="248" opacity=".08"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-grid">
+    <div class="portrait reveal">
+      <div class="frame"><img src="profile.jpg" alt="Simon Dagbanja" /></div>
+      <div class="tag"><small>Focus</small><b>InSAR · Few-Shot SAR</b></div>
+    </div>
+    <div class="reveal">
+      <h1>Simon <em>Dagbanja</em></h1>
+      <div class="role">InSAR Phase Unwrapping · Few-Shot SAR · Physics-Informed Deep Learning</div>
+      <p class="statement">Graduate researcher, building label-efficient, physics-informed methods for SAR and InSAR: aimed at environmental monitoring in data-scarce regions.</p>
+      <div class="affil"><span class="pin">◆</span> M.Eng. Information & Communication Engineering · UESTC, Chengdu · Advised by Prof. Qian Jiang</div>
+      <div class="hero-actions">
+        <a href="#research" class="btn btn-solid">Explore research <span class="ar">→</span></a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+      <div class="profiles">
+        <a href="https://scholar.google.com/citations?user=example" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://orcid.org/0009-0002-6804-3448" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://github.com/TheDagbanja?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/simon-dagbanja-753bb8188/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ABOUT ============================== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">About</span></div>
+    <div class="about-grid">
+      <div class="about-side reveal">
+        <div class="label">Field</div><div class="val">SAR & InSAR Remote Sensing</div>
+        <div class="label">Methods</div><div class="val">Few-Shot & Meta-Learning</div>
+        <div class="label">Approach</div><div class="val">Physics-Informed, Label-Efficient</div>
+        <div class="label">Location</div><div class="val">Chengdu, China · Originally from Ghana</div>
+      </div>
+      <div class="about-text reveal">
+        <h2 class="section-title">Reading the Earth through <span class="accent">radar</span>.</h2>
+        <p>I'm <strong>Simon Dagbanja</strong>, a remote sensing researcher. I build <strong>label-efficient, physics-informed</strong> methods for <strong>SAR and InSAR</strong>, aimed at environmental monitoring in data-scarce regions.</p>
+        <p>My InSAR work replaces the hand-designed cost in network-flow <strong>phase unwrapping</strong> with a learned prior that preserves the solver's zero-residue guarantee, validated on coseismic interferograms against GPS. In <strong>few-shot SAR</strong>, I design frozen-backbone, physics-calibrated methods that map floods from only a handful of labelled examples.</p>
+        <p>I'm currently a graduate student at <strong>UESTC</strong> under Prof. Qian Jiang, with first-author manuscripts accepted at <strong>IEEE AP-GARSS 2026</strong> and under review at <strong>IEEE TGRS</strong>. Before radar, I trained as a geographer at the <strong>University of Ghana</strong>, with field, UAV, and GIS work across Ghana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RESEARCH INTERESTS ============================== -->
+<section class="section alt" id="research">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Research</span>
+      <h2 class="section-title">Areas of <span class="accent">interest</span></h2>
+      <p class="lead-dim">The themes my current and future work is built around.</p>
+    </div>
+    <div class="interests reveal" style="margin-top:44px">
+      <div class="interest">
+        <div class="idx">01</div>
+        <h3>InSAR Phase Unwrapping</h3>
+        <p>Learned, physics-informed cost functions for network-flow phase unwrapping that preserve the solver's zero-residue guarantee; across C- and L-band.</p>
+      </div>
+      <div class="interest">
+        <div class="idx">02</div>
+        <h3>Few-Shot & Meta-Learning</h3>
+        <p>Frozen-backbone, label-efficient methods for environmental monitoring and adapt to new scenes from as few as one to ten examples.</p>
+      </div>
+      <div class="interest">
+        <div class="idx">03</div>
+        <h3>Physics-Informed Deep Learning</h3>
+        <p>Embedding radar physics, Gamma speckle statistics, interferometric coherence, and terrain priors directly into modern learning pipelines.</p>
+      </div>
+      <div class="interest">
+        <div class="idx">04</div>
+        <h3>Environmental Monitoring</h3>
+        <p>Surface deformation and flood mapping for environmental insight in data-scarce regions, cross-terrain events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROJECTS ============================== -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Projects</span>
+      <h2 class="section-title">Current & recent <span class="accent">work</span></h2>
+      <p class="lead-dim">First-author manuscripts under review and in preparation: all on learning- and physics-driven SAR / InSAR.</p>
+    </div>
+
+    <div style="margin-top:40px">
+      <article class="project reveal">
+        <div class="meta"><span class="yr">2026</span>Manuscript · Submitted for review at IEEE AP-GARSS 2026</div>
+        <div>
+          <div class="tags"><span>InSAR</span><span>Phase Unwrapping</span><span>Swin + LoRA</span></div>
+          <h3>Learned Statistical Costs for Network-Flow InSAR Phase Unwrapping</h3>
+          <p>Rather than replacing the minimum-cost-flow solver, I learn its cost function: a Swin Transformer with low-rank adaptation predicts per-edge ambiguity probabilities, fused with a coherence term and made differentiable through the solver. It lowers unwrapping error by over 48% versus SNAPHU, stays residue-free on Sentinel-1 coseismic interferograms, and agrees with GPS to approximately 2 cm, with no retraining on real data. Validated on Ridgecrest, Kumamoto, Amatrice, and Gorkha events.</p>
+          <div class="links"><a href="#" target="_blank" rel="noopener">IEEE AP-GARSS 2026 →</a><a href="#" target="_blank" rel="noopener">Code →</a></div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="meta"><span class="yr">2026</span>Manuscript · Under review at IEEE TGRS</div>
+        <div>
+          <div class="tags"><span>InSAR</span><span>Cross-Band</span><span>L-Band</span></div>
+          <h3>Cross-Band Learned Statistical Costs for Network-Flow InSAR Phase Unwrapping</h3>
+          <p>Extending the learned-cost unwrapper into a full cross-band framework: a first-principles L-band phase-noise model, LoRA-based C→L transfer with a formal forgetting bound, and a five-arc minimum-cost-flow that widens the ambiguity range for near-fault and volcanic scenes. Validated across Sentinel-1 and NISAR against independent GPS.</p>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="meta"><span class="yr">2026</span>Manuscript · Under review at IEEE TGRS</div>
+        <div>
+          <div class="tags"><span>InSAR</span><span>L-Band</span><span>Benchmark</span></div>
+          <h3>LB-DLPU: A L-Band Benchmark Dataset for Deep-Learning InSAR Phase Unwrapping</h3>
+          <p>Created LB-DLPU, a comprehensive L-band phase unwrapping benchmark for deep learning with a 13-method baseline study. Provides standardized training and evaluation protocols to advance L-band InSAR processing research.</p>   
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="meta"><span class="yr">2026</span>Manuscript · In preparation</div>
+        <div>
+          <div class="tags"><span>Few-Shot</span><span>SAR</span><span>Flood Mapping</span></div>
+          <h3>TopoProto: Physics-Informed Few-Shot SAR Flood Segmentation</h3>
+          <p>Integrating HAND (Height Above Nearest Drainage) and slope priors into a prototype-based few-shot segmentation framework for SAR flood mapping. Targets Remote Sensing of Environment.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PUBLICATIONS ============================== -->
+<section class="section alt" id="publications">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Publications</span>
+      <h2 class="section-title">Papers & <span class="accent">preprints</span></h2>
+    </div>
+
+    <div style="margin-top:40px">
+      <div class="pub reveal">
+        <div class="n">1</div>
+        <div>
+          <h3>Learned Statistical Costs for Network-Flow InSAR Phase Unwrapping</h3>
+          <div class="authors"><u>S. Dagbanja, J. Qian and L. Haitao</u></div>
+          <div class="venue">Submitted for review · IEEE AP-GARSS 2026</div>
+          <div class="links"><a href="#" target="_blank" rel="noopener">PDF</a><a href="#" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </div>
+      <div class="pub reveal">
+        <div class="n">2</div>
+        <div>
+          <h3>Cross-Band Learned Statistical Costs for Network-Flow InSAR Phase Unwrapping</h3>
+          <div class="authors"><u>S. Dagbanja, J. Qian and L. Haitao</u></div>
+          <div class="venue">Under review · IEEE Transactions on Geoscience and Remote Sensing · 2026</div>
+          <div class="links"><a href="#" target="_blank" rel="noopener">PDF</a><a href="#" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </div>
+      <div class="pub reveal">
+        <div class="n">3</div>
+        <div>
+          <h3>A Well-Posedness-Certified, Sensor-Calibrated L-Band Benchmark Dataset for Deep-Learning InSAR Phase Unwrapping</h3>
+          <div class="authors"><u>S. Dagbanja and J. Qian</u></div>
+          <div class="venue">Under review · IEEE Transactions on Geoscience and Remote Sensing · 2026</div>
+          <div class="links"><a href="#" target="_blank" rel="noopener">PDF</a><a href="#" target="_blank" rel="noopener">Code</a></div>
+        </div>
+      </div>
+      <div class="pub reveal">
+        <div class="n">5</div>
+        <div>
+          <h3>TopoProto: Physics-Informed Few-Shot SAR Flood Segmentation with HAND and Slope Priors</h3>
+          <div class="authors"><u>S. Dagbanja</u></div>
+          <div class="venue">In preparation · target Remote Sensing of Environment</div>
+        </div>
+      </div>
+    </div>
+    <p class="pub-note reveal">Author order and venues are finalized on submission. Manuscript PDFs available on request. Code links will be available upon publication.</p>
+  </div>
+</section>
+
+<!-- ============================== SKILLS ============================== -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Skills</span>
+      <h2 class="section-title">Tools & <span class="accent">expertise</span></h2>
+    </div>
+    <div class="skills-grid reveal" style="margin-top:40px">
+      <div class="skill-group">
+        <h4>Programming & ML</h4>
+        <ul>
+          <li>Python & PyTorch</li>
+          <li>Few-shot & meta-learning</li>
+          <li>Physics-informed deep learning</li>
+          <li>LaTeX & Git</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Remote Sensing</h4>
+        <ul>
+          <li>SAR / InSAR processing (SNAP, ISCE2)</li>
+          <li>ArcGIS, ENVI, Google Earth Engine</li>
+          <li>UAV photogrammetry</li>
+          <li>Multi-temporal change detection</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EDUCATION & EXPERIENCE ============================== -->
+<section class="section alt" id="journey">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Background</span>
+      <h2 class="section-title">Education & <span class="accent">experience</span></h2>
+    </div>
+    <div class="timeline" style="margin-top:40px">
+      <div class="tl reveal">
+        <div class="when">Sept 2025 — Present</div>
+        <div>
+          <h3>Graduate Researcher</h3>
+          <div class="org">UESTC, Chengdu</div>
+          <p>Developing learned-cost InSAR phase unwrapping and physics-calibrated few-shot SAR; validated on coseismic interferograms (Ridgecrest, Kumamoto, Amatrice, Gorkha) against GPS line-of-sight displacements. Peer reviewer, Technical Program Committee, IEEE InGARSS 2026 (4 manuscripts reviewed).</p>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Aug 2025 — Jun 2027 (expected)</div>
+        <div>
+          <h3>M.Eng., Information & Communication Engineering</h3>
+          <div class="org">UESTC · Advisor: Prof. Qian Jiang</div>
+          <p>Coursework complete; thesis on learned InSAR phase unwrapping and few-shot SAR.</p>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Apr 2025 — Aug 2025</div>
+        <div>
+          <h3>Data & Spatial Analysis Consultant</h3>
+          <div class="org">World Bank Group (Health, Nutrition & Population)</div>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Jan 2025 — Jun 2025</div>
+        <div>
+          <h3>Co-opted Member, Committee on Illegal Small-Scale Mining</h3>
+          <div class="org">Government of Ghana</div>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Oct 2024 — Dec 2024</div>
+        <div>
+          <h3>UAV Remote Sensing Specialist</h3>
+          <div class="org">Cambridge Agroforestry Project</div>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Nov 2023 — Oct 2024</div>
+        <div>
+          <h3>Remote Sensing / GIS Researcher & Teaching Assistant</h3>
+          <div class="org">RSGIS Laboratory, University of Ghana</div>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Sept 2024</div>
+        <div>
+          <h3>Workshop Instructor (Volunteer)</h3>
+          <div class="org">Ghana Geographers Association</div>
+        </div>
+      </div>
+      <div class="tl reveal">
+        <div class="when">Aug 2019 — Sept 2023</div>
+        <div>
+          <h3>B.A., Geography, First Class Honours</h3>
+          <div class="org">University of Ghana, Legon · Advisor: Prof. Gerald Yiran</div>
+          <p>Thesis: groundwater-potential mapping of the Tamale area using remote sensing and GIS(ArcGIS, ENVI, SNAP)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:48px">
+      <span class="eyebrow">Honors</span>
+      <h2 class="section-title" style="margin-bottom:24px">Awards & <span class="accent">recognition</span></h2>
+      <div class="honor">
+        <div><h4>University of Ghana Merit Scholarship</h4><p>Academic excellence award, renewed annually</p></div>
+        <div class="when">2020 — 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <span class="eyebrow" style="justify-content:center">Contact</span>
+      <h2>Let's <em>collaborate</em>.</h2>
+      <p>Open to research collaborations, PhD opportunities, and conversations about SAR, InSAR, and machine learning for Earth observation.</p>
+      <a href="mailto:simondagbanja258@gmail.com" class="email">simondagbanja258@gmail.com</a>
+      <div class="cprofiles">
+        <a href="https://scholar.google.com/citations?user=example" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://orcid.org/0009-0002-6804-3448" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://github.com/TheDagbanja?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/simon-dagbanja-753bb8188/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Simon Dagbanja · SAR Remote Sensing Research</div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const prog = document.getElementById('progress');
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  prog.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+}, { passive:true });
+
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 24));
+
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); navLinks.classList.toggle('open'); });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); navLinks.classList.remove('open'); }));
+
+const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), { threshold:.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const secs = [...document.querySelectorAll('section[id]')];
+const lnks = [...document.querySelectorAll('.nav-links a:not(.nav-cv)')];
+addEventListener('scroll', () => {
+  const y = scrollY + 110; let cur = secs[0]?.id;
+  for (const s of secs) if (s.offsetTop <= y) cur = s.id;
+  lnks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+});
+</script>
+</body>
+</html>
